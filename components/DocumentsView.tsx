@@ -138,7 +138,7 @@ export default function DocumentsView({
     }`;
 
   return (
-    <div className="min-h-screen bg-stone-50 dark:bg-zinc-950 transition-colors">
+    <div className="min-h-dvh bg-stone-50 dark:bg-zinc-950 transition-colors">
       {/* Header */}
       <header className="bg-white/75 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-stone-200/60 dark:border-zinc-800/50 sticky top-0 z-30 transition-colors">
         <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
@@ -155,7 +155,7 @@ export default function DocumentsView({
               className="flex items-center gap-1.5 bg-violet-600 hover:bg-violet-700 dark:hover:bg-violet-500 text-white text-xs font-medium rounded-lg px-3 py-2 transition ml-1"
             >
               <Plus className="w-3.5 h-3.5" />
-              Upload
+              <span className="hidden sm:inline">Upload</span>
             </button>
             <form action={logout}>
               <button

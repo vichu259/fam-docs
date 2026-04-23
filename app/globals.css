@@ -7,3 +7,8 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+/* prevent iOS from zooming on input focus (requires font-size >= 16px) */
+@media (max-width: 768px) {
+  input, select, textarea { font-size: 16px; }
+}

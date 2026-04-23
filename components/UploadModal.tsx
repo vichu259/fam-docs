@@ -92,8 +92,8 @@ export default function UploadModal({ onClose, existingFolders }: Props) {
   const inputCls = "w-full bg-white dark:bg-zinc-900 border border-stone-200 dark:border-zinc-800 text-stone-900 dark:text-zinc-100 placeholder-stone-300 dark:placeholder-zinc-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-400 dark:focus:border-violet-500 transition";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 dark:bg-black/50 backdrop-blur-sm">
-      <div className="bg-white dark:bg-zinc-900 border border-stone-200 dark:border-zinc-800 rounded-2xl w-full max-w-sm shadow-xl transition-colors">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-black/20 dark:bg-black/50 backdrop-blur-sm">
+      <div className="bg-white dark:bg-zinc-900 border border-stone-200 dark:border-zinc-800 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-sm max-h-[90dvh] overflow-y-auto shadow-xl transition-colors">
         <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100 dark:border-zinc-800">
           <h2 className="text-sm font-semibold text-stone-900 dark:text-zinc-100">Upload document</h2>
           <button onClick={onClose} className="text-stone-300 dark:text-zinc-600 hover:text-stone-600 dark:hover:text-zinc-300 transition">
