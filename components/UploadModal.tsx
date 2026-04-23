@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { uploadDocument } from "@/app/actions/documents";
 import { createFolder } from "@/app/actions/folders";
-import { Upload, X, CornerDownLeft, Camera } from "lucide-react";
+import { Upload, X, Camera } from "lucide-react";
 
 interface Folder {
   id: string;
@@ -29,7 +29,7 @@ export default function UploadModal({ onClose, existingFolders }: Props) {
   const [file, setFile] = useState<File | null>(null);
   const [displayName, setDisplayName] = useState("");
   const [folderId, setFolderId] = useState(existingFolders[0]?.id ?? "");
-  const [newFolderMode, setNewFolderMode] = useState(false);
+  const [newFolderMode, setNewFolderMode] = useState(existingFolders.length === 0);
   const [newFolderName, setNewFolderName] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -152,10 +152,13 @@ export default function UploadModal({ onClose, existingFolders }: Props) {
                   onChange={(e) => setNewFolderName(e.target.value)}
                   placeholder="e.g. passport, recipes…"
                   className={inputCls + " border-violet-300 dark:border-violet-700"} />
-                <button type="button" onClick={() => { setNewFolderMode(false); setNewFolderName(""); }}
-                  className="flex-shrink-0 p-2 text-stone-400 dark:text-zinc-500 hover:text-stone-700 dark:hover:text-zinc-200 bg-stone-100 dark:bg-zinc-800 hover:bg-stone-200 dark:hover:bg-zinc-700 rounded-lg transition">
-                  <CornerDownLeft className="w-4 h-4" />
-                </button>
+                {existingFolders.length > 0 && (
+                  <button type="button" onClick={() => { setNewFolderMode(false); setNewFolderName(""); }}
+                    className="flex-shrink-0 p-2 text-stone-400 dark:text-zinc-500 hover:text-stone-700 dark:hover:text-zinc-200 bg-stone-100 dark:bg-zinc-800 hover:bg-stone-200 dark:hover:bg-zinc-700 rounded-lg transition"
+                    title="Back to folder list">
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
               </div>
             ) : (
               <select value={folderId} onChange={(e) => handleFolderSelect(e.target.value)} className={inputCls}>
